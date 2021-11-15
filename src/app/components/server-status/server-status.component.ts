@@ -12,7 +12,7 @@ export class ServerStatusComponent implements OnInit {
   model: StatusResponseModel = {
     message: 'Fake Server Message',
     lastChecked: '2021-11-15T20:15:41.640Z'
-  };
+  }; // Comment added.
 
 
   constructor(private http: HttpClient) { }
