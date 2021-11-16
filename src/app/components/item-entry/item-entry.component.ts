@@ -14,12 +14,16 @@ export class ItemEntryComponent implements OnInit {
     'Other'
   ];
   form = this.formBuilder.group({
-    title: ['', [Validators.required]],
+    title: ['', [Validators.required, Validators.maxLength(100)]],
     author: ['', [Validators.required]],
     suggestedBy: [''],
     format: ['', Validators.required],
     link: ['', []]
-  })
+  });
+
+  get title() { return this.form.get('title'); }
+  get author() { return this.form.get('author'); }
+  get format() { return this.form.get('format'); }
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
