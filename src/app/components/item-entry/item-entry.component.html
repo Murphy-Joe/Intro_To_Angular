@@ -1,1 +1,40 @@
-<p>item-entry works!</p>
+<form [formGroup]="form"
+      (ngSubmit)="submit()">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input type="text"
+           class="form-control"
+           id="title"
+           formControlName="title">
+  </div>
+  <div class="form-group">
+    <label for="author">Author</label>
+    <input type="text"
+           class="form-control"
+           id="author"
+           formControlName="author">
+  </div>
+  <div class="form-group">
+    <label for="suggestedBy">Suggested By</label>
+    <input type="text"
+           class="form-control"
+           id="suggestedBy"
+           formControlName="suggestedBy">
+  </div>
+  <div class="form-group">
+    <label for="title">Format</label>
+    <select class="form-control"
+            formControlName="format">
+      <option *ngFor="let format of formats">{{format}}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="link">Link</label>
+    <input type="text"
+           class="form-control"
+           id="link"
+           formControlName="link">
+  </div>
+  <button type="submit"
+          class="btn btn-primary">Add This Resource</button>
+</form>

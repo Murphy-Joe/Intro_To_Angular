@@ -10,6 +10,7 @@ import { ResourcesComponent } from './components/resources/resources.component';
 import { NavComponent } from './components/nav/nav.component';
 import { ItemEntryComponent } from './components/item-entry/item-entry.component';
 import { ItemListComponent } from './components/item-list/item-list.component'
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,8 @@ import { ItemListComponent } from './components/item-list/item-list.component'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

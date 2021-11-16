@@ -1,0 +1,6 @@
+
+
+### Getting the Server Status
+
+GET http://localhost:5000/status HTTP/1.1
+Accept: application/json
