@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
-
+import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
+type FieldWithErors = (AbstractControl & { errors: any }) | null;
 @Component({
   selector: 'app-item-entry',
   templateUrl: './item-entry.component.html',
@@ -8,7 +8,9 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class ItemEntryComponent implements OnInit {
 
+
   formats = [
+    '',
     'YouTube',
     'Pluralsight',
     'Other'
@@ -21,9 +23,9 @@ export class ItemEntryComponent implements OnInit {
     link: ['', []]
   });
 
-  get title() { return this.form.get('title'); }
-  get author() { return this.form.get('author'); }
-  get format() { return this.form.get('format'); }
+  get title() { return this.form.get('title') as FieldWithErors; }
+  get author() { return this.form.get('author') as FieldWithErors; }
+  get format() { return this.form.get('format') as FieldWithErors; }
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {

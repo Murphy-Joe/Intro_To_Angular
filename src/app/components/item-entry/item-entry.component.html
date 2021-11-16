@@ -8,10 +8,10 @@
            formControlName="title">
     <div class="alert alert-danger"
          *ngIf="title?.errors && (title?.touched || title?.dirty)">
-      <p>This is required!</p>
-      <p>This is limited to 100 characters or less.</p>
+      <p *ngIf="title?.errors?.required">This is required!</p>
+      <p *ngIf="title?.errors?.maxlength">This is limited to {{title?.errors?.maxlength?.requiredLength}} characters or
+        less.</p>
     </div>
-
   </div>
   <div class="form-group">
     <label for="author">Author</label>
@@ -19,6 +19,11 @@
            class="form-control"
            id="author"
            formControlName="author">
+    <div class="alert alert-danger"
+         *ngIf="author?.errors && (author?.touched || author?.dirty)">
+      <p *ngIf="author?.errors?.required">This is required!</p>
+
+    </div>
   </div>
   <div class="form-group">
     <label for="suggestedBy">Suggested By</label>
@@ -33,6 +38,11 @@
             formControlName="format">
       <option *ngFor="let format of formats">{{format}}</option>
     </select>
+    <div class="alert alert-danger"
+         *ngIf="format?.errors && (format?.touched || format?.dirty)">
+      <p *ngIf="format?.errors?.required">This is required!</p>
+
+    </div>
   </div>
   <div class="form-group">
     <label for="link">Link</label>
