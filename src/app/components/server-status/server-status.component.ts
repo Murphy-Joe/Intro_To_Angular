@@ -20,6 +20,7 @@ export class ServerStatusComponent implements OnInit {
   ngOnInit(): void {
     this.http.get<StatusResponseModel>(environment.apiUrl + 'status').subscribe(r => {
       this.model = r;
+      console.log('Got: ', r);
     });
   }
 

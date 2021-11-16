@@ -7,14 +7,18 @@ import { ServerStatusComponent } from './components/server-status/server-status.
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ResourcesComponent } from './components/resources/resources.component';
-import { NavComponent } from './components/nav/nav.component'
+import { NavComponent } from './components/nav/nav.component';
+import { ItemEntryComponent } from './components/item-entry/item-entry.component';
+import { ItemListComponent } from './components/item-list/item-list.component'
 @NgModule({
   declarations: [
     AppComponent,
     ServerStatusComponent,
     DashboardComponent,
     ResourcesComponent,
-    NavComponent
+    NavComponent,
+    ItemEntryComponent,
+    ItemListComponent
   ],
   imports: [
     BrowserModule,
