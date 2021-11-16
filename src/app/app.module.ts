@@ -11,6 +11,10 @@ import { NavComponent } from './components/nav/nav.component';
 import { ItemEntryComponent } from './components/item-entry/item-entry.component';
 import { ItemListComponent } from './components/item-list/item-list.component'
 import { ReactiveFormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { reducers } from './reducers';
+import { CounterComponent } from './components/counter/counter.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,13 +23,16 @@ import { ReactiveFormsModule } from '@angular/forms';
     ResourcesComponent,
     NavComponent,
     ItemEntryComponent,
-    ItemListComponent
+    ItemListComponent,
+    CounterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StoreModule.forRoot(reducers),
+    StoreDevtoolsModule.instrument()
   ],
   providers: [],
   bootstrap: [AppComponent]
