@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { StatusResponseModel } from 'src/models/statusresponse.model';
 import { environment } from '../../../environments/environment';
 @Component({
@@ -9,19 +10,13 @@ import { environment } from '../../../environments/environment';
 })
 export class ServerStatusComponent implements OnInit {
 
-  model: StatusResponseModel = {
-    message: 'Fake Server Message',
-    lastChecked: '2021-11-15T20:15:41.640Z'
-  }; // Comment added.
-
+  // Async Pipe (eg.. | async) "Subscribe to this observable and update the ui with the data over time"
+  model$!: Observable<StatusResponseModel>;
 
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.http.get<StatusResponseModel>(environment.apiUrl + 'status').subscribe(r => {
-      this.model = r;
-      console.log('Got: ', r);
-    });
+    this.model$ = this.http.get<StatusResponseModel>(environment.apiUrl + 'status');
   }
 
 }

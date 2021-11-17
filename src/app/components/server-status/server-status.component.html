@@ -1,6 +1,6 @@
 <div class="alert alert-info">
   <h3>The Server Status</h3>
-  <p>The Message: {{ model.message }}</p>
-  <p>Last Checked: At {{ model.lastChecked | date:'mediumTime' }}
-    On {{ model.lastChecked | date:'shortDate'}} </p>
+  <p>The Message: {{ (model$ |async)?.message }}</p>
+  <p>Last Checked: At {{(model$ |async)?.lastChecked | date:'mediumTime' }}
+    On {{(model$ |async)?.lastChecked | date:'shortDate'}} </p>
 </div>
