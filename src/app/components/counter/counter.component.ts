@@ -11,10 +11,12 @@ import * as actions from '../../actions/counter.actions';
 export class CounterComponent implements OnInit {
 
   current$!: Observable<number>;
+  atZero$!: Observable<boolean>;
   constructor(private store: Store<AppState>) { }
 
   ngOnInit(): void {
     this.current$ = this.store.select(s => s.counter.current);
+    this.atZero$ = this.store.select(s => s.counter.current === 0);
   }
 
   increment() {
@@ -23,6 +25,9 @@ export class CounterComponent implements OnInit {
 
   decrement() {
     this.store.dispatch(actions.countDecremented());
+  }
+  reset() {
+    this.store.dispatch(actions.countReset());
   }
 
 }

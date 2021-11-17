@@ -1,0 +1,16 @@
+<div class="btn-group"
+     role="group"
+     aria-label="Basic example">
+  <button type="button"
+          [disabled]="(countingBy$ | async) === 1"
+          (click)="countByChanged(1)"
+          class="btn btn-primary">1</button>
+  <button type="button"
+          [disabled]="(countingBy$ | async) === 3"
+          (click)="countByChanged(3)"
+          class="btn btn-primary">3</button>
+  <button type="button"
+          [disabled]="(countingBy$ | async) === 5"
+          (click)="countByChanged(5)"
+          class="btn btn-primary">5</button>
+</div>
